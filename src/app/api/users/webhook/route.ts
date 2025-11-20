@@ -5,6 +5,10 @@ import { db } from "@/db";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
+// 웹훅 핸들러
+// 웹훅 -> 외부 서비스(Clerk)가 특정 이벤트 발생 시 우리 서버로 알림을 보내는 방식
+// Clerk(인증 서비스) -> 사용자 회원가입 / 수정 / 삭제 -> 웹훅으로 알림 전송 -> 우리 서버(api/users/webhook) -> DB에 저장/수정/삭제
+
 export async function POST(req: Request) {
   const SIGNING_SECRET = process.env.CLERK_SIGNING_SECRET;
 
