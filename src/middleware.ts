@@ -1,7 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // url 직접 접근 방지 미들웨어
-const isProtectedRoute = createRouteMatcher(["/protected(.*)"]);
+const isProtectedRoute = createRouteMatcher(["/studio(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   // 직접 접근 방지 미들웨어 적용
